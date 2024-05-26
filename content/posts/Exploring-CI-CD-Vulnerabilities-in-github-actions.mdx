@@ -15,7 +15,7 @@ I hope this message finds you well. Today, I'm thrilled to share my journey and 
 
 To start with actions It is crucial to understand the intricacies of action workflows and familiarize yourself with their functionality and the significance of each event. Crafting sample workflows can significantly aid comprehension. 
 
-To help you get started, I have a YouTube playlist with informative videos that will guide you in getting acquainted with action workflow
+To help you get started, I have a YouTube playlist with informative videos that will guide you in getting acquainted with the action workflow
 
 [youtube playlist](https://www.youtube.com/watch?v=-hVG9z0fCac&list=PLArH6NjfKsUhvGHrpag7SuPumMzQRhUKY)
 
@@ -23,17 +23,17 @@ To help you get started, I have a YouTube playlist with informative videos that 
 ## Understanding Workflow Events
 
 
-I will only talk about two worfklow events which will lead to RCE if misconfigured in action workflows
+I will only talk about two workflow events that will lead to RCE if misconfigured in action workflows
 
 `pull_request_target` and `workflow_run` events
 
 # configurations for action:
 
-Lets talk about the Configuration that are used for action.
+Let's talk about the Configurations that are used for action.
 ![](/assets/action.png)
 
 
-The default permissions allow first-time contributors to run the action runners without any approval from the maintainers. Most repositories have this default configuration. You can look at the pull requests that are being opened to confirm if you need to become a first-time contributor or not for exploiting it.
+The default permissions allow first-time contributors to run the action runners without any approval from the maintainers. Most repositories have this default configuration. You can look at the pull requests that are being opened to confirm if you need to become a first-time contributor or not to exploit it.
 
 
 ### Running Attacker Code
@@ -41,7 +41,7 @@ The default permissions allow first-time contributors to run the action runners 
 1. `pull_request_target`: This event is same as ``pull_request`` but the main difference is that it has a write permission for the tokens, So an attacker can    execute Malicious commands with write permissions if the event is misconfigured.  
 
 
-Here is an yaml file which is vulnerable for malcious execution by pull_request_target.
+Here is a YAML file that is vulnerable to malicious execution by pull_request_target.
 
 ### Example 1: Vulnerability via `pull_request_target`
 
@@ -74,7 +74,7 @@ jobs:
 ```yaml
 ref: ${{ github.event.pull_request.head.sha }}
 ```
-From this part the action will run on the attacker forked code base as it is using `head.sha` which will take attacker pull request as a input and make the base repo action to run the attacker's fork code here.
+From this part the action will run on the attacker forked code base as it is using `head.sha` which will take the attacker pull request as an input and make the base repo action to run the attacker's fork code here.
 
 ```yaml
     - name: Setup node
@@ -82,7 +82,7 @@ From this part the action will run on the attacker forked code base as it is usi
       with:
         node-version: '16'
 ```
-From this ownwards the code will setup npm enviroment from the action runner from the attackers code. 
+From this, the code will set up the npm environment from the action runner from the attacker's code. 
  ```yaml   
     - name: Install dependencies
       run: npm install
@@ -91,11 +91,11 @@ From this ownwards the code will setup npm enviroment from the action runner fro
       run: npm run create-docs
 ```
 
-The potentially untrusted code is being run during npm install and npm run as the referenced packages are controlled by the author of the PR.
+The potentially untrusted code is being run during the npm install and npm run as the referenced packages are controlled by the author of the PR.
 
 
 # Exploitation 
-Now in the forked Repo you can modify your input in package.json and create a pull request. 
+Now in the forked Repo, you can modify your input in package.json and create a pull request. 
 
 ```json
  "scripts": {
@@ -107,7 +107,7 @@ Now in the forked Repo you can modify your input in package.json and create a pu
 2.`workflow_run`: This event allows a user to trigger privileged workflows. It triggers when the status of the other workflow is complete/requested and can be triggered from a forked workflow.
 
 
-Here is an yaml file which is vulnerable for malcious execution by workflow_run
+Here is a YAML file that is vulnerable to malicious execution by workflow_run
 
 ### Example 2: Vulnerability via `workflow_run`
 
@@ -122,7 +122,7 @@ on:
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }} #if the workflow is successfully completed then it will start rest of the tasks in the job 
+    if: ${{ github.event.workflow_run.conclusion == 'success' }} #if the workflow is successfully completed then it will start the rest of the tasks in the job 
     
     steps:
     - name: Checkout
@@ -151,12 +151,12 @@ workflow_run:
 if: ${{ github.event.workflow_run.conclusion == 'success' }}
 ```
 
-This workflow will run after the workflow named `Publish Package'` have been successfully completed as mentioned in the `if:`. So for triggering this
-workflow we need to create workflow name `Publish Package` in the fork repo [there can be same workflow with same name]. 
+This workflow will run after the workflow named `Publish Package'` has been successfully completed as mentioned in the `if:`. So to trigger this
+workflow we need to create the workflow name `Publish Package` in the fork repo [there can be the same workflow with the same name]. 
 
 # Exploitation 
 
-here will create a workflow which will have the name `Publish Package` with a normal `pull_request` event,Which will successfully run and trigger the vulnerable 
+here will create a workflow that will have the name `Publish Package` with a normal `pull_request` event, Which will successfully run and trigger the vulnerable 
 workflow
 ```yaml
 name: Publish Package
@@ -170,7 +170,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Check out repository
+    - name: Check out the repository
       uses: actions/checkout@v2
     
     - name: Example Step
@@ -196,13 +196,17 @@ modifying package.json file
 ## Remediation:
 Avoid checking out untrusted code within action workflows to mitigate vulnerabilities.
 
-Assign write premission where its needed.
+Assign write permission where it's needed.
 
 
 
 ## Conclusion:
 
-I have not cover many other exploit scenarios and events which can lead to vulneribility. 
+In this post, we've explored how misconfigured GitHub Actions workflows can lead to vulnerabilities, such as Remote Code Execution (RCE). Specifically, we've discussed the risks associated with the pull_request_target and workflow_run events. These examples underscore the importance of understanding and properly configuring CI/CD pipelines to prevent potential security breaches.
+
+To mitigate these risks, avoid checking out untrusted code within your action workflows. Assign write permissions only when absolutely necessary, and always validate and sanitize inputs to your workflows.
+
+There are many other potential exploit scenarios and events in GitHub Actions that could lead to vulnerabilities. It’s crucial to continuously review and update your security practices to safeguard your CI/CD pipelines.
 
 
 ## Reference: 
