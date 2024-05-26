@@ -11,18 +11,18 @@ export default function Home() {
       <p className="text-sm">
         I am Anupam Singh, deeply interested in coding and hacking
         ,with a primary focus on cybersecurity.
-        am particularly fascinated by application security, 
-        and I am always seeking to deepen my expertise through continuous research. In addition to my technical pursuits
+        I am particularly fascinated by application security, 
+        and I am always seeking to deepen my expertise through continuous research. In addition to my technical pursuits.
         <br />
-        <br />I am an avid fan of anime, 
-       with a preference for action and psychological thrillers. I also enjoy exploring various aspects of history and space exploration, particularly the achievements of ancient civilizations and the future possibilities of space travel. Gaming is another passion, where I prefer strategy and role-playing games.
-        . If you want to work with me, let’s contact via{" "}
-        <a className="link" href="mailto:anupam936574@gmail.com">
-          email.
+        <br />I am like animes, 
+        with a preference for action and psychological thrillers. I also enjoy exploring various aspects of history and space exploration, particularly the achievements of ancient civilizations and the future possibilities of space travel. Gaming is another passion.
+           <br />
+        <br />
+        I write about Security and some personal stuffs{" "}
+        If you want connect with me here , let’s contact via{" "}
+        <a className="link" href="mailto:anupam936574@gmail.com">email <br />
         </a>
-        <br />
-        <br />
-        I write tech notes/bookmarks that may be helpful on{" "}
+         Discord:anupamas01 (mostly active)
         {/* <a className="link" href="https://notes.zeyadetman.com"></a> */}
         {/* <br />I write tech notes/bookmarks that may be helpful on{" "}
         <a className="link" href="https://notes.zeyadetman.com">
