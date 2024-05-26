@@ -1,5 +1,5 @@
 export const config = {
-  username: "zeyadetman",
-  baseUrl: "https://zeyadetman.com",
-  githubRepo: "https://github.com/zeyadetman/zeyadetman.com",
+  username: "Anupam Singh",
+  baseUrl: "https://AnupamAS0x1.com",
+  // githubRepo: "https://github.com/a/zeyadetman.com",
 };

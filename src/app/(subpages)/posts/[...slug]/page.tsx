@@ -33,7 +33,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: "Zeyad Etman | " + post.title,
+    title: "Anupam Singh | " + post.title,
     description: post.description,
   };
 }

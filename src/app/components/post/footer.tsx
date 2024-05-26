@@ -26,7 +26,7 @@ export const PostFooter = ({ post }: PostFooterProps) => {
           Tweet
         </button>
 
-        <div>
+        {/* <div>
           <button
             key="github-edit-button"
             className="btn btn-primary btn-md bg-black"
@@ -40,9 +40,9 @@ export const PostFooter = ({ post }: PostFooterProps) => {
             <GithubLogo />
             Edit on GitHub
           </button>
-        </div>
+        </div> */}
       </div>
-
+{/* 
       <Giscus
         repo="zeyadetman/zeyadetman.com"
         repoId="MDEwOlJlcG9zaXRvcnk0MDU4NjIyODk="
@@ -56,7 +56,7 @@ export const PostFooter = ({ post }: PostFooterProps) => {
         theme={"dark_dimmed"}
         lang="en"
         loading="lazy"
-      />
+      /> */}
     </>
   );
 };

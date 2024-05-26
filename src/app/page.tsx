@@ -4,27 +4,27 @@ export default function Home() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1>Hey,</h1>
-        <h2>It&apos;s my space on the internet</h2>
+        <h1>Hello!</h1>
+        {/* <h2>It&apos;s my home on the internet</h2> */}
       </div>
 
       <p className="text-sm">
-        Welcome to my space on the internet, I’m Zeyad software engineer from
-        🇪🇬, I created this site to be a digital place to express my presence.
-        you will also find some general thoughts (not-tech).
+        I am Anupam Singh, deeply interested in coding and hacking
+        ,with a primary focus on cybersecurity.
+        am particularly fascinated by application security, 
+        and I am always seeking to deepen my expertise through continuous research. In addition to my technical pursuits
         <br />
-        <br />I have more than 6 years experience working as frontend engineer/
-        fullstack engineer, So if you’re a student or fresh graduate and need an
-        advice, don’t hesitate to book{" "}
-        <a href="https://adplist.org/mentors/zeyad-etman" className="link">
-          a 30mins with me
-        </a>
+        <br />I am an avid fan of anime, 
+       with a preference for action and psychological thrillers. I also enjoy exploring various aspects of history and space exploration, particularly the achievements of ancient civilizations and the future possibilities of space travel. Gaming is another passion, where I prefer strategy and role-playing games.
         . If you want to work with me, let’s contact via{" "}
-        <a className="link" href="mailto:zeyadetman.com">
+        <a className="link" href="mailto:anupam936574@gmail.com">
           email.
         </a>
         <br />
-        <br />I write tech notes/bookmarks that may be helpful on{" "}
+        <br />
+        I write tech notes/bookmarks that may be helpful on{" "}
+        {/* <a className="link" href="https://notes.zeyadetman.com"></a> */}
+        {/* <br />I write tech notes/bookmarks that may be helpful on{" "}
         <a className="link" href="https://notes.zeyadetman.com">
           my digital garden 🪴
         </a>
@@ -33,7 +33,7 @@ export default function Home() {
         them.
         <br />
         <br />
-        <i>النسخة العربية ستأتى قريبًا.</i>
+        <i>النسخة العربية ستأتى قريبًا.</i> */}
       </p>
     </div>
   );
