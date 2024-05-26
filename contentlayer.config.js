@@ -60,7 +60,7 @@ export const Post = defineDocumentType(() => ({
     },
     author: {
       type: "string",
-      default: "Anupam Singh",
+      default: "zeyadetman",
     },
     layout: {
       type: "string",
