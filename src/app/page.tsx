@@ -9,17 +9,17 @@ export default function Home() {
       </div>
 
       <p className="text-sm">
-        I am Anupam Singh, deeply interested in coding and hacking
-        ,with a primary focus on cybersecurity.
-        I am particularly fascinated by application security, 
-        and I am always seeking to deepen my expertise through continuous research. In addition to my technical pursuits.
+      I am Anupam Singh, deeply interested in coding and hacking
+ , with a primary focus on cybersecurity.
+ I am particularly fascinated by application security, 
+ and I am always seeking to deepen my expertise through continuous research. In addition to my technical pursuits.
         <br />
-        <br />I am like animes, 
-        with a preference for action and psychological thrillers. I also enjoy exploring various aspects of history and space exploration, particularly the achievements of ancient civilizations and the future possibilities of space travel. Gaming is another passion.
+        <br />I  like animes, 
+ with a preference for action and psychological thrillers. I also enjoy exploring various aspects of history and space exploration, particularly the achievements of ancient civilizations and the future possibilities of space travel. Gaming is another passion.
            <br />
         <br />
-        I write about Security and some personal stuffs{" "}
-        If you want connect with me here , let’s contact via{" "}
+ I write about Security and some personal stuff {" "}
+ If you want to connect with me here, let’s contact via{" "}
         <a className="link" href="mailto:anupam936574@gmail.com">email <br />
         </a>
          Discord:anupamas01 (mostly active)
