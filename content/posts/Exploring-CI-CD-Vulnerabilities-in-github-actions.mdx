@@ -150,36 +150,8 @@ workflow_run:
 
 if: ${{ github.event.workflow_run.conclusion == 'success' }}
 ```
-
-This workflow will run after the workflow named `Publish Package'` has been successfully completed as mentioned in the `if:`. So to trigger this
-workflow we need to create the workflow name `Publish Package` in the fork repo [there can be the same workflow with the same name]. 
-
+As the original workflow `Publish Package` is trigger by `pull_request` we can create the same exploit as we created for the `pull_request_target`.
 # Exploitation 
-
-here will create a workflow that will have the name `Publish Package` with a normal `pull_request` event, Which will successfully run and trigger the vulnerable 
-workflow
-```yaml
-name: Publish Package
-
-on:
-  pull_request:
-    types: [opened]
-
-jobs:
-  publish-package:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Check out the repository
-      uses: actions/checkout@v2
-    
-    - name: Example Step
-      run: echo "This is an example step for publishing the package"
-
-```
-
-This will help us to trigger the other workflow `Deploy docs`
-
 modifying package.json file 
 
 
@@ -193,13 +165,6 @@ modifying package.json file
 
 
 ```
-## Remediation:
-Avoid checking out untrusted code within action workflows to mitigate vulnerabilities.
-
-Assign write permission where it's needed.
-
-
-
 ## Conclusion:
 
 In this post, we've explored how misconfigured GitHub Actions workflows can lead to vulnerabilities, such as Remote Code Execution (RCE). Specifically, we've discussed the risks associated with the pull_request_target and workflow_run events. These examples underscore the importance of understanding and properly configuring CI/CD pipelines to prevent potential security breaches.
