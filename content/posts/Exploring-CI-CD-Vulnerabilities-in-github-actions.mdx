@@ -150,9 +150,11 @@ workflow_run:
 
 if: ${{ github.event.workflow_run.conclusion == 'success' }}
 ```
-As the original workflow `Publish Package` is trigger by `pull_request` we can create the same exploit as we created for the `pull_request_target`.
+As the original workflow `Publish Package` is triggered by `pull_request` and runs the vulnerable workflow after successful completion we can create the same exploit as we created for the `pull_request_target`.
+
 # Exploitation 
-modifying package.json file 
+
+modifying package.json file and create the pull request from fork
 
 
 
